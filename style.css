@@ -1,0 +1,23 @@
+img {
+    width: 350px;
+}
+
+form {
+    border: solid 1px grey;
+    padding: 10px;
+}
+
+.other {
+    background-color: blue;
+    color: white;
+}
+
+.freetime {
+    background-color: blueviolet;
+    color: white;
+}
+
+.work {
+    background-color: brown;
+    color: white;
+}
