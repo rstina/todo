@@ -1,11 +1,15 @@
 const submitTodoBtn = document.querySelector('#addTodoBtn')
 const todoListArray = []
+let idCounter = 0
 
 submitTodoBtn.addEventListener('click',function(event){
     event.preventDefault()
     todoValue = document.querySelector('#todoText').value
+    console.log(todoValue)
+    console.log(todoListArray)
+    console.log(todoListArray.id)
     todoListArray.push(todoValue)
-    todoValue = ''
+    todoListArray.id = 'id'+idCounter
     displayList(todoListArray)
 })
 
@@ -14,10 +18,12 @@ const ulList = document.querySelector('#todoList')
 // display list
 function displayList(arr){
     ulList.innerHTML = ''
-    arr.forEach( function(product) {
+    arr.forEach( function(todo) {
+        const div = document.createElement('div')
         const li = document.createElement('li')
-        li.textContent = product
-        ulList.appendChild(li)
+        li.textContent = todo
+        div.appendChild(li)
+        ulList.appendChild(div)
     })
 }
 filterField.addEventListener('input',function(event){
