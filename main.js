@@ -1,34 +1,33 @@
 const submitTodoBtn = document.querySelector('#addTodoBtn')
 const todoListArray = []
-let idCounter = 0
 
 submitTodoBtn.addEventListener('click',function(event){
     event.preventDefault()
     todoListArray.push(document.querySelector('#todoText').value)
     document.querySelector('#todoText').value = ''
+    console.log(todoListArray)
     displayList(todoListArray)
-    idCounter++
 })
+
+// vilken array tittar jag på??
+// varför inte delete efter att jag filtrerat
 
 const filterField = document.querySelector('#filter')
 const ulList = document.querySelector('#todoList')
 // display list
 function displayList(arr){
     ulList.innerHTML = ''
-    arr.forEach( function(todo,idCounter) {
+    arr.forEach( function(todo) {
         const div = document.createElement('div')
-        div.id = 'id'+idCounter
         ulList.appendChild(div)
         const li = document.createElement('li')
         li.textContent = todo
         div.appendChild(li)
         const deleteBtn = document.createElement('button')
-        deleteBtn.id = 'ID'+idCounter
         deleteBtn.addEventListener('click',function(event){
-            // tar bort ut listan
             console.log(todoListArray)
-            document.getElementById(event.currentTarget.id.toLowerCase()).remove()
-            // hur ta bort ur arrayen?
+            todoListArray.splice(todoListArray.indexOf(todo),1)
+            event.currentTarget.closest('div').remove()
             console.log(todoListArray)
         })
         li.appendChild(deleteBtn)
@@ -38,9 +37,8 @@ function displayList(arr){
 
 
 filterField.addEventListener('input',function(event){
-    console.log(event.currentTarget.value)
     const filteredTodos = todoListArray.filter(function(todo){
         return todo.toLowerCase().includes(event.currentTarget.value.toLowerCase())
     })
-    displayList(filteredTodos,idCounter)
+    displayList(filteredTodos)
 })
