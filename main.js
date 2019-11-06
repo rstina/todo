@@ -18,16 +18,7 @@ const radBtnAll = document.querySelector('#radAll')
 const radBtnNone = document.querySelector('#radNone')
 const radBtnFree = document.querySelector('#radFree')
 const radBtnWork = document.querySelector('#radWork')
-
-function sendRadValue(radBtn){
-    radBtn.addEventListener('click',function(event){
-        return console.log('Hello')
-    })
-}
-sendRadValue(radBtnAll)
-sendRadValue(radBtnNone)
-sendRadValue(radBtnFree)
-sendRadValue(radBtnWork)
+const radForm = document.querySelector('#radForm')
 
 submitTodoBtn.addEventListener('click',function(event){
     event.preventDefault()
@@ -46,6 +37,7 @@ submitTodoBtn.addEventListener('click',function(event){
     todoEndDate.value = todayISO
     todoCat.value = 'none'
     filterField.value = ''
+    document.querySelector('#radAll').checked  = true
     // display list
     displayList(todoListArr)
 })
@@ -61,7 +53,7 @@ function displayList(arr){
         // display warning if date is passed
         const todoDate = new Date(todo.date)
         if (todo.date !== todayISO && todoDate<today){
-            liText.textContent = `${todo.description} WARNING date passed: ${todo.date} ${todo.category} `
+            liText.textContent = `${todo.description} ${todo.date} Varning, datum passerat! ${todo.category} `
         } else {
             liText.textContent = `${todo.description} ${todo.date} ${todo.category} `
         }
@@ -75,9 +67,26 @@ function displayList(arr){
     })
 }
 
+radForm.addEventListener('click',function(event){
+    const radFilterValue = radForm.elements["categories"].value
+    console.log(radFilterValue)
+    let filterByRadCat = []
+    if(radFilterValue !== 'all'){
+        filterByRadCat = todoListArr.filter(function(todo){
+            return todo.category.toLowerCase().includes(radFilterValue.toLowerCase())
+        })
+    }
+    else if (radFilterValue === 'all'){
+         filterByRadCat = todoListArr
+    }
+    console.log(filterByRadCat)
+    displayList(filterByRadCat)
+})
+/*
 filterField.addEventListener('input',function(event){
-    const filteredTodos = todoListArr.filter(function(todo){
+    const filteredTodos = filterByRadCat.filter(function(todo){
         return todo.description.toLowerCase().includes(event.currentTarget.value.toLowerCase())
     })
     displayList(filteredTodos)
 })
+*/

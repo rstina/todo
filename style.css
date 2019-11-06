@@ -3,7 +3,7 @@ img {
 }
 
 form {
-    border: solid 1px grey;
+    border: solid 1px lightgrey;
     padding: 10px;
 }
 
@@ -27,7 +27,6 @@ form {
 }
 
 div {
-    border: 1px solid black;
 }
 
 button:hover {
