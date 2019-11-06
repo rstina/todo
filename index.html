@@ -2,19 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Inlämning 2</title>
+    <title>Todo</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <form>
         <label>Lägg till en todo: </label><br>
         <input type="text" id="todoText"><br>
+        <input type="date" onload="getDate()" id="todoDate">
+        <select id="todoSelect">
+            <option value="none" selected>Ingen kategori</option>
+            <option value="freetime">Fritid</option>
+            <option value="work">Arbete</option>
+        </select><br>
         <button id="addTodoBtn">Lägg till</button>
     </form>
     <br>
     <label>Filtrera på: </label>
-    <!-- när focusen skiftar ska filtreringen tömmas! -->
-    <input type="text" value="" id="filter"><br>
+    <input type="text" id="filter"><br>
+    <!-- 
+    <input type="radio" name="categories" value="all" checked>Visa alla
+    <input type="radio" name="categories" value="none">Utan kategori
+    <input type="radio" name="categories" value="freetime">Fritid
+    <input type="radio" name="categories" value="work">Arbete<br> 
+    -->
     <ul id="todoList">
     </ul>
     <script type="application/javascript" src="main.js"></script>
@@ -23,13 +34,6 @@
 <!-- 
     <img src="VG.png" alt="">
 VG 
-Applikationen skall ha ett formulär där användaren kan fylla i sin todo. 
-Det skall innehålla: 
-ett textfält där själva ärendet kan skrivas in
-- ett datumfält där ett sista datum för ärendet skall väljas, 
-fältet skall ha dagens datum som defaultvärde
-- en selectbox där användaren kan välja vilken kategori ärendet tillhör. 
-Du kan själv välja vilka kategorier som skall finnas (t.ex. “hushållsarbete” eller “jobb”)
 - en “lägg till”-knapp. När användaren “skickar formuläret” (klickar på knappen) 
 så skall ärendet läggas till i en todolista. 
 
@@ -52,5 +56,12 @@ för den kategorin visas.
 
 -!!! Om både en radiobutton är iklickad och fritextfältet har text skall båda användas. 
 Filtrera först fram allt som är en viss kategori, och gör sen fritextfiltrering baserat på det. 
+
+
+KLART
+- ett textfält där själva ärendet kan skrivas in
+- fältet skall ha dagens datum som defaultvärde
+- ett datumfält där ett sista datum för ärendet skall väljas, 
+- en selectbox där användaren kan välja vilken kategori ärendet tillhör. 
 
 -->
