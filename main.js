@@ -8,8 +8,6 @@ todoEndDate.value = today.toISOString().slice(0,10)
 
 // save info from form
 const todoListArr = []
-const todoCatsArr = []
-const todoDateArr = []
 
 // filtering info
 const filterField = document.querySelector('#filter')
@@ -17,12 +15,17 @@ const ulList = document.querySelector('#todoList')
 
 submitTodoBtn.addEventListener('click',function(event){
     event.preventDefault()
-    todoListArr.push(todoField.value)
-    todoDateArr.push(todoDateArr.value)
-    todoCatsArr.push(todoSelect.value)
-    console.log(todoField.value)
-    console.log(todoEndDate.value)
-    console.log(todoSelect.value)
+    const todoObj = {
+        text: '',
+        date: '',
+        category: ''
+    }
+    todoObj.text = todoField.value
+    todoObj.date = todoEndDate.value
+    todoObj.category = todoSelect.value
+    console.log(todoObj)
+    todoListArr.push(todoObj.value)
+    console.log(todoListArr)
     todoField.value = ''
     todoEndDate.value = today.toISOString().slice(0,10)
     todoSelect.value = 'none'
