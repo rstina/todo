@@ -10,7 +10,7 @@
         <label>Lägg till en todo: </label><br>
         <input type="text" id="todoText"><br>
         <input type="date" onload="getDate()" id="todoDate">
-        <select id="todoSelect">
+        <select id="todoCat">
             <option value="none" selected>Ingen kategori</option>
             <option value="freetime">Fritid</option>
             <option value="work">Arbete</option>
@@ -20,30 +20,25 @@
     <br>
     <label>Filtrera på: </label>
     <input type="text" id="filter"><br>
-    <!-- 
-    <input type="radio" name="categories" value="all" checked>Visa alla
-    <input type="radio" name="categories" value="none">Utan kategori
-    <input type="radio" name="categories" value="freetime">Fritid
-    <input type="radio" name="categories" value="work">Arbete<br> 
-    -->
+
+    <label>Visa alla</label>
+    <input type="radio" name="categories" value="all" id="radAll" checked>
+    <label>Utan kategori</label>
+    <input type="radio" name="categories" value="none" id="radNone">
+    <label>Fritid</label>
+    <input type="radio" name="categories" value="freetime" id="radFree">
+    <label>Arbete</label>
+    <input type="radio" name="categories" value="work" id="radWork"><br> 
     <ul id="todoList">
     </ul>
     <script type="application/javascript" src="main.js"></script>
 </body>
 </html>
 <!-- 
-    <img src="VG.png" alt="">
-VG 
-- en “lägg till”-knapp. När användaren “skickar formuläret” (klickar på knappen) 
-så skall ärendet läggas till i en todolista. 
-
-- Applikationen skall även ha en lista över redan inmatade todos. 
+<img src="VG.png" alt=""> 
 - I listan skall man se själva ärendetexten, slutdatumet, kategorin för varje todo. 
 - Om slutdatumet är tidigare än dagens datum skall det finnas en grafisk varning 
 som visar att slutdatumet är passerat. 
-- I listan över inmatade todos skall det också finnas en knapp för varje todo, där användaren 
-kan ta bort en todo ur listan. När användaren klickar på “ta bort” skall todo:n tas ur listan. 
-
 - Applikationen skall även ha ett fält som kan användas för att filtrera todos. 
 - När användaren skriver i fältet skall bara de todos som innehåller textsträngen 
 användaren skriver in synas. 
@@ -59,6 +54,11 @@ Filtrera först fram allt som är en viss kategori, och gör sen fritextfiltreri
 
 
 KLART
+- Applikationen skall även ha en lista över redan inmatade todos.
+- I listan över inmatade todos skall det också finnas en knapp för varje todo, där användaren 
+kan ta bort en todo ur listan. När användaren klickar på “ta bort” skall todo:n tas ur listan. 
+- en “lägg till”-knapp. När användaren “skickar formuläret” (klickar på knappen) 
+så skall ärendet läggas till i en todolista. 
 - ett textfält där själva ärendet kan skrivas in
 - fältet skall ha dagens datum som defaultvärde
 - ett datumfält där ett sista datum för ärendet skall väljas, 

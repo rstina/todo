@@ -29,3 +29,13 @@ form {
 div {
     border: 1px solid black;
 }
+
+button:hover {
+    color: orange;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+li {
+    padding: 10px;
+}
