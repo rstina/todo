@@ -7,6 +7,10 @@ form {
     padding: 10px;
 }
 
+#radForm label {
+    margin-right: 15px;
+}
+
 .none {
     background-color: blue;
     color: white;

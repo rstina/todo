@@ -62,7 +62,6 @@ function displayList(arr){
         deleteBtn.addEventListener('click',function(event){
             todoListArr.splice(todoListArr.indexOf(todo),1)
             event.currentTarget.closest('div').remove()
-            console.log(todoListArr)
         })
     })
 }
