@@ -67,26 +67,25 @@ function displayList(arr){
     })
 }
 
+let filterByRadCat = todoListArr
+
 radForm.addEventListener('click',function(event){
     const radFilterValue = radForm.elements["categories"].value
-    console.log(radFilterValue)
-    let filterByRadCat = []
     if(radFilterValue !== 'all'){
         filterByRadCat = todoListArr.filter(function(todo){
             return todo.category.toLowerCase().includes(radFilterValue.toLowerCase())
         })
     }
     else if (radFilterValue === 'all'){
-         filterByRadCat = todoListArr
+        filterByRadCat = todoListArr
     }
-    console.log(filterByRadCat)
+    filterField.value = ''
     displayList(filterByRadCat)
 })
-/*
+
 filterField.addEventListener('input',function(event){
     const filteredTodos = filterByRadCat.filter(function(todo){
         return todo.description.toLowerCase().includes(event.currentTarget.value.toLowerCase())
     })
     displayList(filteredTodos)
 })
-*/
