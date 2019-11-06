@@ -46,22 +46,27 @@ function displayList(arr){
     ulList.innerHTML = ''
     arr.forEach( function(todo) {
         const div = document.createElement('div')
-        const liText = document.createElement('li')
+        const li = document.createElement('li')
+        const pText = document.createElement('p')
         const deleteBtn = document.createElement('button')
-        ulList.appendChild(div)
-        div.appendChild(liText)
+        ulList.appendChild(li)
+        li.appendChild(div)
+        div.appendChild(pText)
         // display warning if date is passed
         const todoDate = new Date(todo.date)
+        let dispCat = changeDispText(todo.category)
         if (todo.date !== todayISO && todoDate<today){
-            liText.textContent = `${todo.description} ${todo.date} Varning, datum passerat! ${todo.category} `
+            pText.textContent = `${todo.description} ${todo.date}  Datum passerat! ${dispCat}`
+            pText.classList.add('passedDate')
         } else {
-            liText.textContent = `${todo.description} ${todo.date} ${todo.category} `
+            pText.textContent = `${todo.description} ${todo.date} ${dispCat} `
         }
         deleteBtn.textContent = 'X'
-        liText.appendChild(deleteBtn)
+        deleteBtn.id = 'deleteBtnStyle'
+        pText.appendChild(deleteBtn)
         deleteBtn.addEventListener('click',function(event){
             todoListArr.splice(todoListArr.indexOf(todo),1)
-            event.currentTarget.closest('div').remove()
+            event.currentTarget.closest('li').remove()
         })
     })
 }
@@ -88,3 +93,16 @@ filterField.addEventListener('input',function(event){
     })
     displayList(filteredTodos)
 })
+
+// change category text in display
+function changeDispText(cat){
+    let dispCat = ''
+        if(cat === 'free'){
+            dispCat = 'Fritid'
+        } else if(cat === 'work'){
+            dispCat = 'Arbete'
+        } else {
+            dispCat = 'Ej kategoriserad'
+        }    
+        return dispCat
+}

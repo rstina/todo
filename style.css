@@ -34,11 +34,22 @@ div {
 }
 
 button:hover {
-    color: orange;
+    background-color: orange;
+    color: white;
     font-weight: bold;
     cursor: pointer;
 }
 
 li {
     padding: 10px;
+    border: 1px solid lightgrey;
+}
+
+.passedDate {
+    color: grey;
+    text-decoration: line-through;
+}
+
+#deleteBtnStyle:hover {
+    
 }
