@@ -61,7 +61,7 @@ function displayList(arr){
         let dispCat = changeDispText(todo.category)
         if (todo.date !== todayISO && todoDate<today){
             pText.textContent = `${todo.description} ${dispCat} ${todo.date} `
-            pDate.textContent = ` Date passed!`
+            pDate.textContent = ` Passed date`
             pDate.classList.add('passedDate')
         } else {
             pText.textContent = `${todo.description} ${dispCat} ${todo.date}`
