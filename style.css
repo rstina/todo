@@ -1,55 +1,88 @@
-img {
-    width: 500px;
+body {
+    background-color: brown;
+    color: saddlebrown;
+    font-size: 18px;
+    font-family: cursive;
+}
+
+article {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+p {
+    display: inline;
+}
+
+h1 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 42px;
+    color: white;
+    margin: 0;
+    text-align: center;
 }
 
 form {
-    border: solid 1px lightgrey;
-    padding: 10px;
+    padding: 20px;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+#filterAndList {
+    background-color: beige;
+    border-radius: 10px;
 }
 
 #radForm label {
     margin-right: 15px;
 }
 
-.none {
-    background-color: blue;
-    color: white;
+#addTodoInfoBox {
+    padding: 20px;
 }
 
-.freetime {
-    background-color: blueviolet;
-    color: white;
+#deleteBtnStyle {
+    color: brown;
+    float: right;
+    margin-right: 100px;
 }
 
-.work {
-    background-color: brown;
-    color: white;
+input {
+    padding: 2px;
 }
 
-.all {
-    background-color: antiquewhite;
-}
-
-div {
-}
-
-button:hover {
-    background-color: orange;
+button {
+    padding: 10px;
+    background-color: green;
     color: white;
     font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px; 
+    border-radius: 5px;
+}
+
+button:hover,i:hover {
     cursor: pointer;
 }
 
-li {
-    padding: 10px;
-    border: 1px solid lightgrey;
+button:hover {
+    background-color: darkgreen;
+}
+
+button:active { background-color: limegreen; }
+
+ul {
+    list-style-type: circle;
+    padding-bottom: 20px;
+    font-family: cursive;
 }
 
 .passedDate {
-    color: grey;
-    text-decoration: line-through;
+    color: red;
+    text-decoration: underline;
 }
 
 #deleteBtnStyle:hover {
-    
+    color: red;
 }

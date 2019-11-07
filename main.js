@@ -35,7 +35,7 @@ submitTodoBtn.addEventListener('click',function(event){
     // reset values
     todoField.value = ''
     todoEndDate.value = todayISO
-    todoCat.value = 'none'
+    todoCat.value = 'unclear'
     filterField.value = ''
     document.querySelector('#radAll').checked  = true
     // display list
@@ -48,20 +48,24 @@ function displayList(arr){
         const div = document.createElement('div')
         const li = document.createElement('li')
         const pText = document.createElement('p')
-        const deleteBtn = document.createElement('button')
+        const pDate = document.createElement('p')
+        const deleteBtn = document.createElement('i')
+        deleteBtn.classList.add('fa-trash')
+        deleteBtn.classList.add('fa')
         ulList.appendChild(li)
         li.appendChild(div)
         div.appendChild(pText)
+        div.appendChild(pDate)
         // display warning if date is passed
         const todoDate = new Date(todo.date)
         let dispCat = changeDispText(todo.category)
         if (todo.date !== todayISO && todoDate<today){
-            pText.textContent = `${todo.description} ${todo.date}  Datum passerat! ${dispCat}`
-            pText.classList.add('passedDate')
+            pText.textContent = `${todo.description} ${dispCat} ${todo.date} `
+            pDate.textContent = ` Date passed!`
+            pDate.classList.add('passedDate')
         } else {
-            pText.textContent = `${todo.description} ${todo.date} ${dispCat} `
+            pText.textContent = `${todo.description} ${dispCat} ${todo.date}`
         }
-        deleteBtn.textContent = 'X'
         deleteBtn.id = 'deleteBtnStyle'
         pText.appendChild(deleteBtn)
         deleteBtn.addEventListener('click',function(event){
@@ -97,12 +101,12 @@ filterField.addEventListener('input',function(event){
 // change category text in display
 function changeDispText(cat){
     let dispCat = ''
-        if(cat === 'free'){
-            dispCat = 'Fritid'
-        } else if(cat === 'work'){
-            dispCat = 'Arbete'
+        if(cat === 'naughty'){
+            dispCat = '- Naughty - '
+        } else if(cat === 'nice'){
+            dispCat = ' - Nice - '
         } else {
-            dispCat = 'Ej kategoriserad'
+            dispCat = ' - Status unclear - '
         }    
         return dispCat
 }

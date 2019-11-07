@@ -2,38 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Todo</title>
+    <title>Santa's to-do list</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" id="font-awesome-css" href="https://cdn.colorlib.com/shapely/wp-content/themes/shapely/assets/css/font-awesome.min.css?ver=4.9.8" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas&display=swap" rel="stylesheet">
 </head>
 <body>
-    <form>
-        <label>Lägg till en todo: </label><br>
-        <input type="text" id="todoText"><br>
-        <input type="date" onload="getDate()" id="todoDate">
+<article>
+    <h1>Santa's to-do list</h1>
+    <form id="addTodoInfoBox">
+        <label>Enter christmas wish: </label>
+        <input type="text" id="todoText"><br><br>
+        <label>Elves should have it completed by: </label>
+        <input type="date" onload="getDate()" id="todoDate"><br><br>
+        <label>Naughty or nice? </label>
         <select id="todoCat">
-            <option value="none" selected>Ingen kategori</option>
-            <option value="free">Fritid</option>
-            <option value="work">Arbete</option>
-        </select><br>
-        <button id="addTodoBtn">Lägg till</button>
+            <option value="unclear" selected>Status unclear</option>
+            <option value="naughty">Naughty</option>
+            <option value="nice">Nice</option>
+        </select><br><br>
+        <button id="addTodoBtn">Add to-do</button>
     </form>
     <br>
-    <form id="radForm">
-        <input type="radio" name="categories" value="all" id="radAll" checked>
-        <label>Visa alla</label>
-        <input type="radio" name="categories" value="none" id="radNone">
-        <label>Ingen kategori</label>
-        <input type="radio" name="categories" value="free" id="radFree">
-        <label>Fritid</label>
-        <input type="radio" name="categories" value="work" id="radWork">
-        <label>Arbete</label>
-    </form>
-    <form>
-        <label>Filtrera på: </label>
-        <input type="text" id="filter">
-    </form>
-    <ul id="todoList">
-    </ul>
+    <div id="filterAndList">
+        <form id="radForm">
+            <input type="radio" name="categories" value="all" id="radAll" checked>
+            <label>Show all to-dos</label>
+            <input type="radio" name="categories" value="unclear" id="radNone">
+            <label>Status unclear</label>
+            <input type="radio" name="categories" value="naughty" id="radFree">
+            <label>Naughty</label>
+            <input type="radio" name="categories" value="nice" id="radWork">
+            <label>Nice</label>
+        </form>
+        <form>
+            <label>Filter to-dos: </label>
+            <input type="text" id="filter">
+        </form>
+        <ul id="todoList">
+        </ul>
+    </div>
+</article>
     <script type="application/javascript" src="main.js"></script>
 </body>
 </html>
