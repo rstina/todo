@@ -24,13 +24,10 @@ submitTodoBtn.addEventListener('click',function(event){
     event.preventDefault()
     // create todo object and push into array
     const todoObj = {
-        description: '',
-        date: '',
-        category: ''
+        description: todoField.value,
+        date: todoEndDate.value,
+        category: todoCat.value,
     }
-    todoObj.description = todoField.value
-    todoObj.date = todoEndDate.value
-    todoObj.category = todoCat.value
     todoListArr.push(todoObj)
     // reset values
     todoField.value = ''
@@ -41,6 +38,8 @@ submitTodoBtn.addEventListener('click',function(event){
     // display list
     displayList(todoListArr)
 })
+
+let filterByRadCat = todoListArr
 
 function displayList(arr){
     ulList.innerHTML = ''
@@ -70,12 +69,11 @@ function displayList(arr){
         pText.appendChild(deleteBtn)
         deleteBtn.addEventListener('click',function(event){
             todoListArr.splice(todoListArr.indexOf(todo),1)
+            filterByRadCat.splice(filterByRadCat.indexOf(todo),1)
             event.currentTarget.closest('li').remove()
         })
     })
 }
-
-let filterByRadCat = todoListArr
 
 radForm.addEventListener('click',function(event){
     const radFilterValue = radForm.elements["categories"].value
@@ -88,15 +86,19 @@ radForm.addEventListener('click',function(event){
         filterByRadCat = todoListArr
     }
     filterField.value = ''
+    filt2(filterByRadCat)
     displayList(filterByRadCat)
 })
 
-filterField.addEventListener('input',function(event){
-    const filteredTodos = filterByRadCat.filter(function(todo){
-        return todo.description.toLowerCase().includes(event.currentTarget.value.toLowerCase())
+function filt2(arr){
+    filterField.addEventListener('input',function(event){
+        arr = todoListArr
+        const filteredTodos = filterByRadCat.filter(function(todo){
+            return todo.description.toLowerCase().includes(event.currentTarget.value.toLowerCase())
+        })
+        displayList(filteredTodos)
     })
-    displayList(filteredTodos)
-})
+}
 
 // change category text in display
 function changeDispText(cat){
