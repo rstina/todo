@@ -86,11 +86,11 @@ radForm.addEventListener('click',function(event){
         filterByRadCat = todoListArr
     }
     filterField.value = ''
-    filt2(filterByRadCat)
+    filterByTextField(filterByRadCat)
     displayList(filterByRadCat)
 })
 
-function filt2(arr){
+function filterByTextField(arr){
     filterField.addEventListener('input',function(event){
         arr = todoListArr
         const filteredTodos = filterByRadCat.filter(function(todo){
