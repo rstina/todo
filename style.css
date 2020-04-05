@@ -1,6 +1,7 @@
 body {
-    background-color: brown;
-    color: saddlebrown;
+    background-color: #61b9a9;
+    background-image: linear-gradient(to right, #6aa3da , #91c2f0);
+    color: #2e5a83;
     font-size: 18px;
     font-family: cursive;
 }
@@ -29,16 +30,16 @@ h1 {
 
 button {
     padding: 10px;
-    background-color: green;
+    background-color: #4277a8;
     color: white;
     font-weight: bold;
 }
 
 button,i:hover { cursor: pointer; }
 
-button:hover { background-color: darkgreen;}
+button:hover { background-color: #2e5a83;}
 
-button:active { background-color: green; }
+button:active { background-color: #4277a8; }
 
 #addTodoBtn {
     color: white;
@@ -51,9 +52,9 @@ button:active { background-color: green; }
 }
 
 input[type=text],input[type=date],select {
-    border: 1px solid brown;
+    border: 1px solid #4277a8;
     border-radius: 4px;
-    color: rgb(85, 20, 20);
+    color: #2e5a83;
     font-size: 14px;
     font-family: 'Courier New', Courier, monospace;
     padding: 5px;
@@ -61,26 +62,26 @@ input[type=text],input[type=date],select {
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgb(88, 52, 52);
+    color: #2e5a83;
     opacity: 1; /* Firefox */
   }
   
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: rgb(88, 52, 52);
+    color: #2e5a83;
   }
   
   ::-ms-input-placeholder { /* Microsoft Edge */
-    color: rgb(88, 52, 52);
+    color: #2e5a83;
   }
 
 form {
     padding: 20px;
-    background-color: beige;
+    background-color: rgb(245, 245, 231);
     border-radius: 10px;
 }
 
 #filterAndList {
-    background-color: beige;
+    background-color: rgb(245, 245, 231);
     border-radius: 10px;
 }
 
@@ -105,7 +106,7 @@ ul {
 }
 
 .passedDate {
-    color: red;
+    color: brown;
     text-decoration: underline;
 }
 
