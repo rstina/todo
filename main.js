@@ -1,5 +1,6 @@
 // creating form
 const submitTodoBtn = document.querySelector('#addTodoBtn')
+const todoName = document.querySelector('#todoName')
 const todoField = document.querySelector('#todoText')
 const todoCat = document.querySelector('#todoCat')
 const today = new Date()
@@ -24,12 +25,14 @@ submitTodoBtn.addEventListener('click',function(event){
     event.preventDefault()
     // create todo object and push into array
     const todoObj = {
+        name: todoName.value,
         description: todoField.value,
         date: todoEndDate.value,
         category: todoCat.value,
     }
     todoListArr.push(todoObj)
     // reset values
+    todoName.value = ''
     todoField.value = ''
     todoEndDate.value = todayISO
     todoCat.value = 'unclear'
@@ -59,11 +62,11 @@ function displayList(arr){
         const todoDate = new Date(todo.date)
         let dispCat = changeDispText(todo.category)
         if (todo.date !== todayISO && todoDate<today){
-            pText.textContent = `${todo.description} ${dispCat} ${todo.date} `
+            pText.textContent = `${todo.name} - ${todo.description} ${dispCat} ${todo.date} `
             pDate.textContent = ` Passed date`
             pDate.classList.add('passedDate')
         } else {
-            pText.textContent = `${todo.description} ${dispCat} ${todo.date}`
+            pText.textContent = `${todo.name} - ${todo.description} ${dispCat} ${todo.date}`
         }
         deleteBtn.id = 'deleteBtnStyle'
         pText.appendChild(deleteBtn)

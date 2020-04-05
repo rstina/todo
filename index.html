@@ -13,11 +13,13 @@
     
     <h1><img src="snow.png" alt=""> Santa's to-do list</h1>
     <form id="addTodoInfoForm">
-        <label>Enter christmas wish: </label>
+        <label for="todoName">Child's name: </label>
+        <input type="text" id="todoName" placeholder="Name..."><br><br>
+        <label for="todoText">Christmas wish: </label>
         <input type="text" id="todoText" placeholder="Christmas wish..."><br><br>
-        <label>Elves should have it completed by: </label>
+        <label for="todoDate">Elves should have it completed by: </label>
         <input type="date" onload="getDate()" id="todoDate"><br><br>
-        <label>Naughty or nice child? </label>
+        <label for="todoCat">Naughty or nice? </label>
         <select id="todoCat">
             <option value="unclear" selected>Status unclear</option>
             <option value="naughty">Naughty</option>
